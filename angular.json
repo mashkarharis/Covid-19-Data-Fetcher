@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "covid19datafetcher"
+    }
+  },
+  "defaultProject": "covid19datafetcher",
+  "cli": {
+    "analytics": "028649fe-7142-4f95-af0e-adfc2f7223da"
+  }
 }
