@@ -1,14 +1,15 @@
 {
   "name": "covid19datafetcher",
   "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
     "build": "ng build",
+    "start": "node server.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod"
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
