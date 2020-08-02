@@ -1,0 +1,54 @@
+<div>
+  <div class="div-out">
+    <h4 class="title">All Country</h4>
+    <table>
+      <tr>
+        <th>Country</th>
+        <th>Confirmed</th>
+        <th>Recovered</th>
+        <th>Deaths</th>
+      </tr>
+      <tr *ngFor="let element of getData()">
+        <td>{{element['country']}}</td>
+        <td>{{element['confirmed']['value'].toLocaleString('en', {useGrouping:true})}}</td>
+        <td>{{element['recovered']['value'].toLocaleString('en', {useGrouping:true})}}</td>
+        <td>{{element['deaths']['value'].toLocaleString('en', {useGrouping:true})}}</td>
+      </tr>
+
+    </table>
+   
+
+  </div>
+</div>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+  .div-out{
+    overflow: auto;
+    height: 600px;
+    width: 400px;
+    background:ghostwhite;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  .title {
+    color: lightslategray;
+    font-size: 40px;
+  }
+</style>
+    
