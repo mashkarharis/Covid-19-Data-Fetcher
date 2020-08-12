@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {WorldalltimeService} from '../services/worldalltime.service';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-worldyesterday',
@@ -10,8 +11,8 @@ export class WorldyesterdayComponent implements OnInit {
 
   Data: JSON;
 
-  constructor(private was:WorldalltimeService) { }
-
+  constructor(private was:WorldalltimeService,private cd:ChangeDetectorRef) { }
+  loaded:boolean=false;
   ngOnInit(): void {
     this.was.getdailydata().subscribe(res => this.Data=(res.json()));
   }
@@ -31,6 +32,8 @@ export class WorldyesterdayComponent implements OnInit {
     var d1=parseInt(this.Data[Object.keys(this.Data).length-1]['deaths']['total']);
     var d2=parseInt(this.Data[Object.keys(this.Data).length-2]['deaths']['total']);
 
+    this.loaded=true;
+    this.cd.markForCheck();
     return (d1-d2).toLocaleString('en', {useGrouping:true});
   }
 }

@@ -1,5 +1,16 @@
 <div>
+
+
+
   <div class="div-out">
+
+    <div [hidden]="loaded">
+      <div  style="margin-top:25%;margin-left:0%;position: relative;" class="spinner-grow" role="status" [hidden]="loaded">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+   <div [hidden]="!loaded">
+
     <h4 class="title">All Country</h4>
     <table>
       <tr>
@@ -16,7 +27,7 @@
       </tr>
 
     </table>
-   
+   </div>
 
   </div>
 </div>

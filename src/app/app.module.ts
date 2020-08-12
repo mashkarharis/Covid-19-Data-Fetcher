@@ -26,6 +26,8 @@ import { GraphComponent } from './graph/graph.component';
 import { ChartsModule } from 'ng2-charts';
 import { GrapgdComponent } from './grapgd/grapgd.component';
 import { AngComponent } from './ang/ang.component';
+import { NgxSpinnerModule } from "ngx-spinner";  
+
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { AngComponent } from './ang/ang.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     FlexLayoutModule,
-    MatIconModule
+    MatIconModule,
+    NgxSpinnerModule
   ],
   providers: [WorldalltimeService,ProcessHttpmssgService],
   bootstrap: [AppComponent]

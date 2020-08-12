@@ -1,8 +1,14 @@
 
 <div>
     <div class="intro-div-1">
-        <div>
-            <div style="display: block">
+      
+      <div>
+          <div [hidden]="loaded">
+            <div  style="margin-top:25%;margin-left:0%;position: relative;" class="spinner-grow" role="status" [hidden]="loaded">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+          <div style="display: block" [hidden]="!loaded">
               <canvas baseChart
                       [datasets]="getData()"
                       [labels]="getLabels()"
@@ -11,10 +17,10 @@
                       [legend]="barChartLegend"
                       [chartType]="barChartType">
               </canvas>
-            </div>
           </div>
-      </div>
-  </div>
+        </div>
+    </div>        
+</div> 
   
   <style>
       .h20{

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WorldalltimeService } from '../services/worldalltime.service';
 
+import { ChangeDetectorRef } from '@angular/core';
 @Component({
   selector: 'app-grapgd',
   templateUrl: './grapgd.component.html',
@@ -9,7 +10,7 @@ import { WorldalltimeService } from '../services/worldalltime.service';
 export class GrapgdComponent implements OnInit {
 
   Data:Object[];
-  constructor(private was:WorldalltimeService) { }
+  constructor(private was:WorldalltimeService,private cd:ChangeDetectorRef) { }
   public barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true,
@@ -29,10 +30,11 @@ export class GrapgdComponent implements OnInit {
   public barChartColors:Array<any> = [{
     backgroundColor: 'darkgreen'
  }];
+ 
+ loaded:boolean=false;
   ngOnInit(): void {
     this.was.getdailydata().subscribe(res => this.Data=(res.json()));
   }
-  loaded:boolean=false;
   getLabels(){
     var list=[];
       for (let index = 0; index < Object.keys(this.Data).length; index++) {
@@ -56,6 +58,8 @@ export class GrapgdComponent implements OnInit {
       this.list.push({data: data1,label:'Deaths-Up To Day'});
       this.load=true;
     }
+    this.loaded=true;
+    this.cd.markForCheck();
     return this.list;
 
   }

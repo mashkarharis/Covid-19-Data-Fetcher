@@ -1,6 +1,12 @@
 
 <div>
     <div class="intro-div-1">
+      <div [hidden]="loaded">
+        <div  style="margin-top:25%;margin-left:0%;position: relative;" class="spinner-grow" role="status" [hidden]="loaded">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <div [hidden]="!loaded">
       <img  width="35%" src="../assets/calendar.webp" >
       <h1 class="h20">World Data | {{getreportdate()}}</h1>
       <h2 class="h21">Incident Rate</h2>
@@ -9,6 +15,7 @@
       <h1 class="number">{{getwaconfirmed()}}</h1>
       <h2 class="h23">Deaths</h2>
       <h1 class="number">{{getwadeaths()}}</h1>
+      </div>
       </div>
   </div>
   
